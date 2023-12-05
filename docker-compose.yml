@@ -1,0 +1,29 @@
+version: "3.8"
+services:
+  postgres:
+    image: postgres:16
+    ports:
+      - "5434:5432"
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres123
+      POSTGRES_DB: db-nest
+    networks:
+      - nest-todo
+networks:
+  nest-todo:
+  # api: 
+  #   image: nest-todo
+  #   build:
+  #     dockerfile: dockerfile
+  #     context: .
+  #   depends_on:
+  #     - postgres
+  #   environment:
+  #     DATABASE_URL: postgres://postgres:postgres123@postgres:5432/db-nest
+  #     NODE_ENV: development
+  #     PORT: 3000
+
+  #     ports:
+  #       - "4000:4000"
+
