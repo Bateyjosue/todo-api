@@ -12,6 +12,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.AuthService = void 0;
 const common_1 = require("@nestjs/common");
 const prisma_service_1 = require("../prisma/prisma.service");
+const argon = require("argon2");
 let AuthService = class AuthService {
     constructor(prisma) {
         this.prisma = prisma;
@@ -23,12 +24,15 @@ let AuthService = class AuthService {
             message: 'sign up successfully!!!',
         };
     }
-    signup() {
-        return {
-            status: 201,
-            statusText: 'created.',
-            message: 'sign in successfully!!!',
-        };
+    async signup(dto) {
+        const hash = await argon.hash(dto.password);
+        const user = await this.prisma.user.create({
+            data: {
+                email: dto.email,
+                hash,
+            },
+        });
+        return user;
     }
 };
 AuthService = __decorate([
