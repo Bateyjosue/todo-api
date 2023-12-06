@@ -10,8 +10,8 @@ exports.TodoModule = void 0;
 const common_1 = require("@nestjs/common");
 let TodoModule = class TodoModule {
 };
-exports.TodoModule = TodoModule;
-exports.TodoModule = TodoModule = __decorate([
+TodoModule = __decorate([
     (0, common_1.Module)({})
 ], TodoModule);
+exports.TodoModule = TodoModule;
 //# sourceMappingURL=todo.module.js.map

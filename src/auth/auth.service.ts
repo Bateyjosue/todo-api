@@ -5,7 +5,7 @@ export class AuthService {
   login() {
     return {
       status: 201,
-      statusText: 'created...',
+      statusText: 'created.',
       message: 'sign up successfully!!!',
     };
   }
@@ -13,7 +13,7 @@ export class AuthService {
   signup() {
     return {
       status: 201,
-      statusText: 'created',
+      statusText: 'created.',
       message: 'sign in successfully!!!',
     };
   }

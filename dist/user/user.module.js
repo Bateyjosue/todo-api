@@ -10,8 +10,8 @@ exports.UserModule = void 0;
 const common_1 = require("@nestjs/common");
 let UserModule = class UserModule {
 };
-exports.UserModule = UserModule;
-exports.UserModule = UserModule = __decorate([
+UserModule = __decorate([
     (0, common_1.Module)({})
 ], UserModule);
+exports.UserModule = UserModule;
 //# sourceMappingURL=user.module.js.map

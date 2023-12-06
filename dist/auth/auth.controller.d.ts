@@ -4,10 +4,12 @@ export declare class AuthController {
     constructor(authService: AuthService);
     signup(): {
         status: number;
+        statusText: string;
         message: string;
     };
     signin(): {
         status: number;
+        statusText: string;
         message: string;
     };
 }

@@ -12,18 +12,20 @@ let AuthService = class AuthService {
     login() {
         return {
             status: 201,
-            message: 'sign up successfully',
+            statusText: 'created.',
+            message: 'sign up successfully!!!',
         };
     }
     signup() {
         return {
             status: 201,
-            message: 'sign in successfully',
+            statusText: 'created.',
+            message: 'sign in successfully!!!',
         };
     }
 };
-exports.AuthService = AuthService;
-exports.AuthService = AuthService = __decorate([
+AuthService = __decorate([
     (0, common_1.Injectable)()
 ], AuthService);
+exports.AuthService = AuthService;
 //# sourceMappingURL=auth.service.js.map
