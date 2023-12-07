@@ -8,9 +8,13 @@ export declare class AuthController {
         createdAt: Date;
         email: string;
     }>;
-    signin(): {
-        status: number;
-        statusText: string;
-        message: string;
-    };
+    signin(dto: AuthDto): Promise<{
+        id: number;
+        createdAt: Date;
+        updatedAt: Date;
+        email: string;
+        hash: string;
+        firstName: string;
+        lastName: string;
+    }>;
 }
