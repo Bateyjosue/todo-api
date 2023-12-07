@@ -11,10 +11,6 @@ export declare class AuthService {
     signup(dto: AuthDto): Promise<{
         id: number;
         createdAt: Date;
-        updatedAt: Date;
         email: string;
-        hash: string;
-        firstName: string;
-        lastName: string;
     }>;
 }

@@ -6,11 +6,7 @@ export declare class AuthController {
     signup(dto: AuthDto): Promise<{
         id: number;
         createdAt: Date;
-        updatedAt: Date;
         email: string;
-        hash: string;
-        firstName: string;
-        lastName: string;
     }>;
     signin(): {
         status: number;

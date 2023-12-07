@@ -11,23 +11,31 @@ datasource db {
 }
 
 model User {
-  id Int @id @default(autoincrement())
+  id        Int      @id @default(autoincrement())
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
-  email String
-  hash String
+  email String @unique
+  hash  String
 
   firstName String?
-  lastName String?
+  lastName  String?
+
+  todos      Todo[]
+
+  @@map("users")
 }
 
 model Todo {
-  id Int @id @default(autoincrement())
+  id        Int      @id @default(autoincrement())
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
-  task String
+  task        String
   isCompleted Boolean
 
+  userId Int
+  user   User @relation(fields: [userId], references: [id])
+
+  @@map("todos")
 }
