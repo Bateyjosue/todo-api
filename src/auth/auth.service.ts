@@ -27,12 +27,11 @@ export class AuthService {
     if (!pwMatches) throw new ForbiddenException('Credentials incorrect');
 
     const token = await this.signToken(user.id, user.email);
-    console.log(token);
 
     return {
       status: 200,
       message: 'login successful',
-      token: token,
+      token_access: token,
     };
   }
 
@@ -46,19 +45,14 @@ export class AuthService {
           email: dto.email,
           hash,
         },
-        select: {
-          id: true,
-          email: true,
-          createdAt: true,
-        },
       });
 
-      const token = await this.signToken(user.id, user.email);
+      // const token = await this.signToken(user.id, user.email);
 
       return {
-        status: 200,
-        message: 'login successful',
-        token: token,
+        status: 201,
+        message: 'sign up successful',
+        created: user.createdAt,
       };
     } catch (error) {
       if (error instanceof PrismaClientKnownRequestError) {
