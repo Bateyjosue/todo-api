@@ -13,8 +13,8 @@ export declare class AuthService {
         lastName: string;
     }>;
     signup(dto: AuthDto): Promise<{
+        email: string;
         id: number;
         createdAt: Date;
-        email: string;
     }>;
 }
