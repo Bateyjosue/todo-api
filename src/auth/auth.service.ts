@@ -13,6 +13,28 @@ export class AuthService {
     private jwt: JwtService,
     private config: ConfigService,
   ) {}
+
+  async getUser(id: { id: string }) {
+    try {
+      const userInfo = await this.prisma.user.findUnique({
+        where: {
+          id: Number(id.id),
+        },
+      });
+
+      return {
+        id: userInfo.id,
+        email: userInfo.email,
+        firstName: userInfo.firstName,
+        lastName: userInfo.lastName,
+        createdAt: userInfo.createdAt,
+        updatedAt: userInfo.updatedAt,
+      };
+    } catch (err) {
+      throw new ForbiddenException('No user found');
+    }
+  }
+
   async login(dto: AuthDto) {
     const user = await this.prisma.user.findUnique({
       where: {
@@ -57,7 +79,7 @@ export class AuthService {
     } catch (error) {
       if (error instanceof PrismaClientKnownRequestError) {
         if (error.code === 'P2002') {
-          throw new ForbiddenException('Credentials taken');
+          throw new ForbiddenException('Email taken');
         }
         throw error;
       }
